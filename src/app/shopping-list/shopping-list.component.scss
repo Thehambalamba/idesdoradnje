@@ -1,0 +1,14 @@
+th:last-child,
+td:last-child {
+  text-align: center;
+
+  .table-actions-wrap {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+  }
+}
+
+.fa-info-circle {
+  margin-right: 10px;
+}
