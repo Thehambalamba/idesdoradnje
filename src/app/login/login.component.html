@@ -1,0 +1,13 @@
+<div class="custom-box small">
+  <form [formGroup]="loginForm" (ngSubmit)="logIn($event)">
+    <div class="form-item">
+      <input type="text" formControlName="username" name="username" placeholder="Unesite email">
+    </div>
+    <div class="form-item">
+      <input type="text" formControlName="password" name="password" placeholder="Unesite šifru">
+    </div>
+    <div class="form-actions">
+      <button type="submit">Prijavi se</button>
+    </div>
+  </form>
+</div>
