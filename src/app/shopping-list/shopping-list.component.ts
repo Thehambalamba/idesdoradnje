@@ -7,19 +7,37 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ShoppingListComponent implements OnInit {
   list = [
-    { title: "Mleko", quantity: 2 },
-    { title: "Hleb", quantity: 1 },
-    { title: "Dunhil", quantity: 6 },
-    { title: "Salama", quantity: 1 },
-    { title: "Pljeskavica", quantity: 1 },
-    { title: "Luk", quantity: 1 },
-    { title: "Zito", quantity: 1 }
+    { title: "Mleko", quantity: 2, completed: false },
+    { title: "Hleb", quantity: 1, completed: true },
+    { title: "Dunhil", quantity: 6, completed: false },
+    { title: "Salama", quantity: 1, completed: false },
+    { title: "Pljeskavica", quantity: 1, completed: false },
+    { title: "Luk", quantity: 1, completed: false },
+    { title: "Zito", quantity: 1, completed: false }
   ];
+
+  showDetails: boolean;
+  selectedItem: any;
   constructor() {}
 
   ngOnInit() {}
 
   showItemDetails(index) {
-    console.log(index);
+    this.selectedItem = this.list[index];
+    this.showDetails = true;
+  }
+
+  closeDetails() {
+    this.showDetails = false;
+  }
+
+  deleteItem(e, i) {
+    e.stopPropagation();
+    this.list.splice(i, 1);
+  }
+
+  completeItem(e, i) {
+    e.stopPropagation();
+    this.list[i].completed = true;
   }
 }

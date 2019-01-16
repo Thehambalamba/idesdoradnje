@@ -10,7 +10,10 @@ body {
   flex-flow: column;
   height: 100vh;
 
-  &.center {
+  .center-column-wrap {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
     justify-content: center;
   }
 }
@@ -29,5 +32,9 @@ body {
   .form-actions {
     display: flex;
     justify-content: center;
+
+    button {
+      min-width: 130px;
+    }
   }
 }

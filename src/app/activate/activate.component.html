@@ -1,0 +1,15 @@
+<div class="center-column-wrap">
+  <div class="custom-box">
+    <form [formGroup]="activateForm" (ngSubmit)="activateAccount($event)">
+      <h2>Aktivacija naloga</h2>
+      <p>Molimo Vas unesite vaš aktivacioni kod.</p>
+      <div class="form-item">
+        <input type="text" formControlName="activationCode" name="username" placeholder="Unesite aktivacioni kod">
+      </div>
+      <div class="form-actions">
+        <button type="button" [routerLink]="['/log-in']">Nazad</button>
+        <button type="submit">Aktiviraj</button>
+      </div>
+    </form>
+  </div>
+</div>

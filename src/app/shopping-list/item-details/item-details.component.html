@@ -1,3 +1,13 @@
-<p>
-  item-details works!
-</p>
+<div class="overlay">
+  <div class="custom-box">
+    <form [formGroup]="itemDetailsForm" ngSubmit="saveDetails()">
+      <div class="form-item">
+        <label for="title">Naziv:</label>
+        <input formControlName="title" type="text">
+      </div>
+    </form>
+    <div class="form-actions">
+      <button type="button" (click)="closeDetails()">Close</button>
+    </div>
+  </div>
+</div>

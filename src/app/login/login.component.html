@@ -1,14 +1,20 @@
-<div class="custom-box">
-  <form [formGroup]="loginForm" (ngSubmit)="logIn($event)">
-    <h2>Ideš do radnje?</h2>
-    <div class="form-item">
-      <input type="text" formControlName="username" name="username" placeholder="Unesite email">
-    </div>
-    <div class="form-item">
-      <input type="text" formControlName="password" name="password" placeholder="Unesite šifru">
-    </div>
-    <div class="form-actions">
-      <button type="submit">Prijavi se</button>
-    </div>
-  </form>
+<div class="center-column-wrap">
+  <div class="custom-box">
+    <form [formGroup]="loginForm" (ngSubmit)="logIn($event)">
+      <h2>Prijavljivanje</h2>
+      <p>Molimo unesite Vaše podatke.</p>
+      <div class="form-item">
+        <input type="text" formControlName="username" name="username" placeholder="Unesite email">
+      </div>
+      <div class="form-item">
+        <input type="password" formControlName="password" name="password" placeholder="Unesite šifru">
+      </div>
+      <div class="form-actions">
+        <button type="submit">Prijavi se</button>
+      </div>
+      <div class="form-actions">
+        <small>Imate kod za aktivaciju? <a [routerLink]="['/activate']">Aktiviraj nalog.</a></small>
+      </div>
+    </form>
+  </div>
 </div>

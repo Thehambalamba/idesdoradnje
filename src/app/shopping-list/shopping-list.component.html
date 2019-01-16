@@ -6,14 +6,40 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of list; let i = index;" (click)="showItemDetails(i)">
-      <td><i class="fas fa-info-circle"></i>{{item.title}}</td>
-      <td>
-        <div class="table-actions-wrap">
-          <i class="fas fa-trash"></i>
-          <i class="fas fa-clipboard-check"></i>
-        </div>
-      </td>
-    </tr>
+    <ng-container *ngIf="list.length; else noitems">
+      <tr *ngFor="let item of list; let i = index" (click)="showItemDetails(i)">
+        <td
+          [ngStyle]="{
+            'text-decoration': item.completed ? 'line-through' : ''
+          }"
+        >
+          {{ item.title }}
+        </td>
+        <td>
+          <div class="table-actions-wrap">
+            <i class="fas fa-trash" (click)="deleteItem($event, i)"></i>
+            <ng-container *ngIf="!item.completed; else completed">
+              <i class="fas fa-check" (click)="completeItem($event, i)"></i>
+            </ng-container>
+            <ng-template #completed>
+              <i class="far fa-times-circle"></i>
+            </ng-template>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-template #noitems>
+      <tr>
+        <td>Trenutno nema dodatih proizvoda.</td>
+      </tr>
+    </ng-template>
   </tbody>
 </table>
+
+<app-item-details
+  *ngIf="showDetails"
+  [(showDetails)]="showDetails"
+  [(selectedItem)]="selectedItem"
+  (hideDetails)="closeDetails()"
+>
+</app-item-details>

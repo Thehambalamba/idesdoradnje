@@ -7,11 +7,13 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CoreModule } from "./core/core.module";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { Routes, RouterModule } from "@angular/router";
-import { ItemDetailsComponent } from './shopping-list/item-details/item-details.component';
+import { ItemDetailsComponent } from "./shopping-list/item-details/item-details.component";
+import { ActivateComponent } from "./activate/activate.component";
 
 const appRoutes: Routes = [
   { path: "log-in", component: LoginComponent },
   { path: "shopping-list", component: ShoppingListComponent },
+  { path: "activate", component: ActivateComponent },
   {
     path: "",
     redirectTo: "/log-in",
@@ -20,7 +22,13 @@ const appRoutes: Routes = [
   { path: "**", component: LoginComponent }
 ];
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ShoppingListComponent, ItemDetailsComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ShoppingListComponent,
+    ItemDetailsComponent,
+    ActivateComponent
+  ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
