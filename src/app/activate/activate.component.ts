@@ -16,5 +16,5 @@ export class ActivateComponent implements OnInit {
 
   ngOnInit() {}
 
-  activateAccount() {}
+  activateAccount(e) {}
 }
